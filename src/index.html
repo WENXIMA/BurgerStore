@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>WESTERN_SUPERSTORE</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <h1>WELCOME TO UO FAST FOOD MARKET!</h1>
+        <!-- Tab links, each one with an onclick event associated with it -->
+        
+        <div class="tab">
+            <button type="button" class="tablinks" onclick="openInfo(event, 'Homepage')">Homepage</button>
+            <button class="tablinks" onclick="openInfo(event, 'Customer')">Customer</button>
+            <button class="tablinks" onclick="openInfo(event, 'Menu')">Menu</button>
+            <button class="tablinks" onclick="openInfo(event, 'Cart')">Your shopping Cart</button>
+            <button type="submit" class="submit_btn"><a href=index.php class="cc">Sign-In</a></button>
+        </div>
+        <div id="Homepage" class="tabcontent">
+            <h2>Welcome to western superstore</h2>
+            <p>It is your best choice of fast food in Ottawa</p>
+            <p>More descrption...</p>
+            <p>We are able to do pick-up orders or dine-in orders as your wish</p>
+            <p>Here is our address:xxxx address</p>
+            <p>Phone number is:613-123-4567</p>
+            <p>Our opening hours: 8:30am-9:00pm Monday-Sunday</p>
+        </div>
+        <!-- Tab content -->
+        <div id="Customer" class="tabcontent">
+            <h3>Client Information</h3>
+            <p>Tell us a bit about you.</p>
+            
+            <p>Sign-In Now to earn a coupon code!</p>    
+            
+            
+            <p>Choose your way to eat: </p>
+<p>
+	
+	Dine-In: <input type="radio" name="waytoeat" /><br />
+    
+	Pick-Up: <input type="radio" name="waytoeat" />
+</p>
+            Choose a Category from our menu:
+            <select id="custom-select" name="custom-select" onchange="populateListProductChoices(this.id, 'displayProduct')">
+                <option value=""></option>
+                <option value="burger">burger</option>
+                <option value="snack">snack</option>
+                <option value="drinks">drinks</option>
+                <option value="None">View All</option>
+            </select>
+            
+            <div>
+                <button class="tablinks" onclick="openInfo(event, 'Homepage');">Back to Introduction</button>
+                <button class="tablinks" onclick="openInfo(event, 'Menu');">Go to Menu</button>
+                
+              </div>
+
+        </div>
+        
+        <div id="Menu" class="tabcontent">
+            <h3>Your targeted products</h3>
+            <p>We preselected products based on your restrictions.</p>
+            Choose items to buy:
+            <div id="displayProduct"></div>
+            <button id="addCart" type="button" class="block" onclick="selectedItems();openInfo(event,'Cart');">
+                Add selected items to cart.
+            </button>
+            <div>
+                <button class="tablinks" onclick="openInfo(event, 'Customer');">Back to Customer</button>
+              </div>
+        </div>
+        
+        <div id="Cart" class="tabcontent">
+            <h3>Cart</h3>
+            <p>Here is your cart.</p>
+            
+            <div id="displayCart"></div>
+           
+                <p>Please enter your coupon code to earn a 15% off discount!</p><br>
+                
+                <label for="coupon">Coupon Code:</label>
+                <input type="text" id="coupon" name="coupon"><br><br>
+                <button class ="coupon1" onclick="myFunction1()" id="coupon1" name="coupon1">Submit your coupon code</button>
+                <script>
+                    function myFunction1() {
+                        var value = document.getElementById("coupon").value;
+                        if(value.length<10){
+                            alert("Invaild Coupon Code");
+                        } else{
+                            alert("Congras! You are one of our member!")
+                        }
+                        
+
+                       
+                    }
+                </script>
+                <p>Have a chance to win another coupon code!</p>
+                <button class ="coupon" onclick="myFunction()" id="coupon-btn" name="coupon-btn">Win a coupon code</button>
+                <div class="main">
+                    <p id="result"></p>
+                  </div>
+                  
+                <script>
+                    function myFunction() {
+                        idArray = new Array()
+                        idArray [1] = "Thank you for participating!"
+                        idArray [2] = "Thank you for participating!"
+                        idArray [3] = "Thank you for participating!"
+                        idArray [4] = "Win a " +Math.floor(Math.random() * 60)+"% off Coupon,Use in Next Time!"
+                        idArray [5] = "Thank you for participating!"
+
+                    document.getElementById("coupon-btn").onclick = myFunction;
+                    randomParagraph = Math.floor(Math.random()*5);
+
+                    document.getElementById("result").innerHTML = idArray[randomParagraph + 1];       
+                    }
+                </script>
+            <div>
+                <button class="tablinks" onclick="openInfo(event, 'Homepage');">Back to Introduction</button>
+                <button class="tablinks" onclick="openInfo(event, 'Customer');">Back to Customer</button>
+                <button class="tablinks" onclick="openInfo(event, 'Menu');">Back to Menu</button>
+              </div>
+              <p >Your order will be ready within <p id="demo"></p>minutes</p>
+              <script>
+                  
+                      document.getElementById("demo").innerHTML =Math.floor(Math.random() * 60);
+                  
+                  
+              </script>
+              <p>Your table number is: <p id="demo1"></p></p>
+              <script>
+                  
+                      document.getElementById("demo1").innerHTML =Math.floor(Math.random() * 10);
+                  
+                  
+              </script>
+        </div>
+        
+        
+        
+    </div>
+    <div class="footer">
+                <div class="firstlabel">
+                    <p>Contact us</p>
+                    <a href='openInfo(event,'Homepage');' class="links">About us</a><br>
+                    <a href='https://google.com' class="links">Give us feedback</a><br>
+                     
+                </div>
+               
+            
+           <div class="secondlabel">
+            <p>Policy</p>
+            <a href='https://google.com' class="links">Privacy Policy</a><br>
+            <a href='https://google.com' class="links">Terms and Conditions</a><br>
+           </div>
+
+               <div class="thirdlabel">
+                <p>Social Media</p>
+                <a href='https://www.facebook.com' class="links">Facebook</a><br>
+                <a href='https://www.instagram.com' class="links">Instagram</a><br>
+                <a href='https://www.twitter.com' class="links">Twitter</a><br>
+               </div>
+           
+                
+            
+            <h4 style="text-align:center">Designed by CSI3140 Group N</h4>
+        
+        
+    </div>
+    <script src="groceries.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
